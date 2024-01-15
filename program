@@ -1,0 +1,41 @@
+using System;
+using System.Text;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Podaj łańcuch zawierający liczby pomieszane z tekstem:");
+        string input = Console.ReadLine();
+
+        Console.WriteLine("Złożone liczby całkowite:");
+
+        StringBuilder currentNumber = new StringBuilder();
+
+        foreach (char character in input)
+        {
+            if (char.IsDigit(character))
+            {
+                currentNumber.Append(character);
+            }
+            else if (currentNumber.Length > 0)
+            {
+                PrintAndResetNumber(currentNumber);
+            }
+        }
+
+        // Sprawdź, czy ostatnia liczba nie została wydrukowana
+        if (currentNumber.Length > 0)
+        {
+            PrintAndResetNumber(currentNumber);
+        }
+
+        Console.ReadLine(); // Zapobiega zamknięciu konsoli od razu po wykonaniu programu
+    }
+
+    static void PrintAndResetNumber(StringBuilder currentNumber)
+    {
+        Console.Write(int.Parse(currentNumber.ToString()) + " ");
+        currentNumber.Clear();
+    }
+}
