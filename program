@@ -24,7 +24,7 @@ class Program
             }
         }
 
-        // Sprawdź, czy ostatnia liczba nie została wydrukowana
+        
         if (currentNumber.Length > 0)
         {
             PrintAndResetNumber(currentNumber);
